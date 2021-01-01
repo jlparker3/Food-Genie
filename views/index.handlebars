@@ -1,0 +1,88 @@
+
+<div class="container">
+
+    <div class="jumbotron">
+        {{!-- <div class="burger-img"><img src="assets/img/burger.png" alt="burger picture" style="width:18em; height:18em;"></div><br> --}}
+        {{!-- <div class="burgergif"><img src="assets/img/burger.gif" alt="burger gif" style="height:25em"></div><br> --}}
+        <div class="movingfood"><img src="assets/img/movin-food.gif" alt="moving food" style=" height:25em;"></div>
+        <h1>Food Genie</h1>
+        <br>
+        <h3>Select or Input any Food Item Below</h3>
+        <panel>
+            <form class="create-form">
+                <div class="form-group">
+                    <label for="newburger">Order a Custom Food Here: </label>
+                
+                    {{!-- input field for users entry --}}
+                    <input type="text" id="newburger" name="burger">
+                   
+                   {{!-- Hamburger button from fontawesome --}}
+                    <button type="submit" class="btn btn-success" id="addburger">
+                        <span class="fas fa-hamburger"></span>
+                    </button>
+                </div>
+            </form>
+        </panel>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                {{!-- Left panel side --}}
+                <div class="panel-heading" id="leftside"><h2>Order Your Food Here</h2> <br>
+    
+                </div>
+                <div class="panel-body">
+
+                    <ul>
+                        {{#each burgers}}
+                        {{#unless devoured }}
+                       
+                      
+                        
+
+                        <span><strong>{{this.burger_name}}</strong></span>
+                          {{!-- utensils button from fontawesome --}}
+                        <button class="burger-button btn-success" data-id="{{this.id}}"
+                            data-newDevoured="{{devour}}"><span class="fas fa-utensils"></span></button>
+                            <p>Devoured: 0</p>
+                            <p>FREE</p>
+                        
+                        {{/unless}}
+                        {{/each}}
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                {{!-- Right panel side --}}
+                <div class="panel-heading" id="rightside"><h2>Recently Devoured Food</h2> <br>
+              
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        {{#each burgers}}
+                        {{#if devoured}}
+                       
+                         
+                        <span><strong> {{this.id}} - {{this.burger_name}}</strong></span>
+                        {{!-- Trash button from fontawesome --}}
+                        <button class="delete-button btn-danger"  data-id="{{this.id}}"
+                            data-newDevoured="{{devour}}"><span class="fa fa-trash"></span></button>
+                             <p>Devoured: 1</p>
+                         <p>Nom Nom this food was good! </p>
+                        <hr>
+                        {{/if}}
+                        {{/each}}
+                    </ul>
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

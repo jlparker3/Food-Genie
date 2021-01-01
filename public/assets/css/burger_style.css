@@ -1,0 +1,18 @@
+.jumbotron {
+    /* background-color: #45bcfa; */
+    background-color:white;
+    background-image: "assets/img/movin-food.gif";
+    /* background-image:"assets/img/burger.gif"; */
+    height: 700px;
+    width:auto;
+    text-align: center;
+}
+
+h1, h2, h3, label, p {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1, h2 {
+    
+    text-decoration:underline;
+}
